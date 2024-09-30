@@ -1,5 +1,14 @@
 {
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/home/adriano/.config/Code/User/globalStorage/redhat.vscode-camelk/java-dependencies/*.jar"
+  ],
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.configuration.updateBuildConfiguration": "automatic"
+  // "[java]": {
+  //   "editor.tabSize": 4,
+  //   "editor.detectIndentation": true,
+  //   "editor.insertSpaces": true
+  // }
 }

@@ -1,4 +1,4 @@
-# getting-started
+# ms-cml-restful
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -49,11 +49,15 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/getting-started-1.0.0-SNAPSHOT-runner`
+You can then execute your native executable with: `./target/ms-cml-restful-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
 ## Related Guides
 
 - Camel Log ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/log.html)): Prints data form the routed message (such as body and headers) to the logger
+- Camel Rest ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/rest.html)): Expose REST services and their OpenAPI Specification or call external REST services
 - Camel Timer ([guide](https://camel.apache.org/camel-quarkus/latest/reference/extensions/timer.html)): Generate messages in specified intervals using java.util.Timer
+
+Testing 
+- https://quarkus.io/guides/getting-started-testing

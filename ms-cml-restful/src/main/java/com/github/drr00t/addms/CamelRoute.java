@@ -18,11 +18,11 @@ public class CamelRoute extends RouteBuilder {
         //         .apiProperty("api.version", "v1")
         //         .apiProperty("cors", "true")
         //         .bindingMode(RestBindingMode.json);
-        restConfiguration().component("netty-http").bindingMode(RestBindingMode.json)
+        restConfiguration().component("netty-http").host("0.0.0.0").port(8880).bindingMode(RestBindingMode.json)
             // and output using pretty print
             .dataFormatProperty("prettyPrint", "true")
             // setup context path and port number that netty will use
-            .contextPath("/").port(8080)
+            .contextPath("/") //.port(8080)
             // add OpenApi api-doc out of the box
             .apiContextPath("/api-doc")
                 .apiProperty("api.title", "User API").apiProperty("api.version", "1.2.3")
@@ -34,12 +34,16 @@ public class CamelRoute extends RouteBuilder {
         .consumes("application/json").produces("application/json")
         .get("/{id}").description("Find user by id").outType(User.class)
             .param().name("id").type(RestParamType.path).description("The id of the user to get").dataType("int").endParam()
-            .to("bean:userService?method=getUser(${header.id})")
-        .put().description("Updates or create a user").type(User.class)
-            .param().name("body").type(RestParamType.body).description("The user to update or create").endParam()
-            .to("bean:userService?method=updateUser")
-        .get("/findAll").description("Find all users").outType(User[].class)
-            .to("bean:userService?method=listUsers");
+            .to("direct:greet")
+            // .to("bean:userService?method=getUser(${header.id})")
+        // .put().description("Updates or create a user").type(User.class)
+        //     .param().name("body").type(RestParamType.body).description("The user to update or create").endParam()
+            // .to("direct:greet")
+            // .to("bean:userService?method=updateUser")
+        // .get("/findAll").description("Find all users").outType(User[].class)
+        // .to("direct:greet")
+            // .to("bean:userService?method=listUsers")
+            ;
 
         rest().path("api")
             // Dash '-' is not allowed by default

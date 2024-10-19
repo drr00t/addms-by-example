@@ -4,10 +4,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 1G
     container_name: postgres
     restart: always
+    command: -c wal_level=logical
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -16,6 +17,8 @@ services:
       - ./pg_data:/var/lib/postgresql/data":rw
     ports:
       - "5432:5432"
+    networks:
+      - addms_net
 
   # https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
   pgadmin4:

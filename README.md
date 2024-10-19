@@ -23,3 +23,11 @@ mvn io.quarkus:quarkus-maven-plugin:3.15.1:create \
 mvn io.quarkus:quarkus-maven-plugin:3.15.1:create -DprojectGroupId=com.github.drr00t -DprojectArtifactId=ms-cml-openapi -Dextensions=camel-quarkus-log,camel-quarkus-rest-openapi
 
 mvn archetype:generate -B -DarchetypeGroupId=org.apache.camel.archetypes -DarchetypeArtifactId=camel-archetype-java -DarchetypeVersion=4.8.0 -Dpackage=org.apache.camel.learn -DgroupId=org.apache.camel.learn -DartifactId=first-camel-integration -Dversion=1.0.0-SNAPSHOT
+
+## CDC
+```console
+mvn io.quarkus:quarkus-maven-plugin:3.15.1:create \
+-DprojectGroupId=com.github.drr00t.addms \
+-DprojectArtifactId=ms-cml-cdc \
+-Dextensions="camel-quarkus-core,camel-quarkus-debezium-postgres,camel-quarkus-direct,camel-quarkus-rest,camel-quarkus-jsonpath,camel-quarkus-mongodb,camel-quarkus-jpa,quarkus-hibernate-orm,quarkus-agroal
+```
